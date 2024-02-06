@@ -5,4 +5,11 @@
 
 
 class User:
-    pass
+    def __init__(self, name, password, u_id):
+        """ID пользовотеля используется в календаре для определения принадлежности"""
+        self._name = name
+        self._password = password
+        self._id = u_id
+
+    def __str__(self):
+        return f"User {self._name} with ID {self._id} loaded"
