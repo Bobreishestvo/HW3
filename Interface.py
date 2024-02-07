@@ -9,6 +9,7 @@
 """
 import sys
 from Backend import Backend
+from Calendar import Calendar
 
 
 class Interface:
@@ -43,9 +44,26 @@ class Interface:
             print("Пароль неверен")
         else:
             print(Backend.current_user)
+            Interface.main_menu()
+    @staticmethod
+    def main_menu():
+        '''Меню управления календарем'''
+        print(f'''1. Выбор календаря\n2. Ближашее событие\n3. События в интервале\n4. Добавить новое событие\n5. Удалить событие
+        Есть новые события if Calendar.check_new_notification() is True else нет новых событий''')
 
-    def main_menu(self):
-        pass
+        command = int(input("Выберите команду (введите цифру):"))
+        if command == 1:
+            pass
+        elif command == 2:
+            pass
+        elif command == 3:
+            pass
+        elif command == 4:
+            pass
+        elif command == 5:
+            pass
+        else:
+            print("Ошибка ввода")
 
     def new_user(self):
         'создание нового пользователя'

@@ -10,7 +10,7 @@
 """
 import csv
 from User import User
-
+from Calendar import Calendar
 
 class Backend:
     """Singletone"""
@@ -28,6 +28,7 @@ class Backend:
     def __init__(self):
         self.passwords = ""
         self.current_user = ""
+        self.user_calend = ""
         print(f"Backend init success")
 
     def check_name(self):
@@ -54,6 +55,7 @@ class Backend:
         print(self)
         if (self) == Backend.passwords[1]:
             Backend.current_user = User(Backend.passwords[0], Backend.passwords[1], Backend.passwords[2])
+            Backend.new_calendar(Backend.passwords[2])
             return True
         else:
             return False
@@ -64,3 +66,6 @@ class Backend:
             file_writer = csv.writer(p_file, delimiter=";", lineterminator="\n")
             file_writer.writerow([self, password, "@" + str(self)])
         print(f'Пользователь {self} добавлен, необходим перезапуск')
+
+    def new_calendar(self):
+        current_calend = Calendar()

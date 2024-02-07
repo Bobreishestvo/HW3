@@ -7,4 +7,15 @@
 
 
 class Calendar:
-    pass
+    def __init__(self):
+        self._notification = False
+        self._events = []
+
+    @staticmethod
+    def new_notification():
+        Calendar._notification = True
+    @staticmethod
+    def check_new_notification():
+        if Calendar._notification is True:
+            return True
+
